@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caça Palavras - Jogo Interativo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1 class="game-title">🔍 Caça Palavras</h1>
+            
+            <div class="difficulty-selector">
+                <label class="difficulty-label">Escolha a Dificuldade:</label>
+                <div class="difficulty-buttons">
+                    <button class="difficulty-btn active" data-difficulty="easy">Fácil</button>
+                    <button class="difficulty-btn" data-difficulty="medium">Médio</button>
+                    <button class="difficulty-btn" data-difficulty="hard">Difícil</button>
+                </div>
+            </div>
+            
+            <div class="game-info">
+                <div class="score-info">Pontuação: <span id="score">0</span></div>
+                <div class="level-info">Nível: <span id="level">1</span></div>
+                <div class="timer-info">Tempo: <span id="timer">5:00</span></div>
+            </div>
+        </div>
+
+        <div class="game-content">
+            <div class="grid-container">
+                <div id="wordGrid" class="word-grid"></div>
+                <div class="controls">
+                    <button class="btn btn-primary" onclick="newGame()">Novo Jogo</button>
+                    <button class="btn btn-secondary" onclick="clearSelection()">Limpar Seleção</button>
+                    <button class="btn btn-success" onclick="showHint()">Dica</button>
+                    <button class="btn btn-new-words" onclick="newRandomWords()">Gerar Palavras</button>
+                </div>
+            </div>
+            
+            <div class="words-panel">
+                <h3 class="words-title">Palavras para Encontrar</h3>
+                <ul id="wordsList" class="words-list"></ul>
+                <div style="margin-top: 20px; text-align: center;">
+                    <div style="color: #4a5568; font-weight: bold;">
+                        Encontradas: <span id="foundCount">0</span>/<span id="totalCount">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gameComplete" class="game-complete">
+        <div class="complete-modal">
+            <h2 class="complete-title">🎉 Parabéns!</h2>
+            <p class="complete-message">
+                Você encontrou todas as palavras!<br>
+                Pontuação Final: <span id="finalScore">0</span><br>
+                Tempo: <span id="finalTime">0</span>
+            </p>
+            <button class="btn btn-primary" onclick="nextLevel()">Próximo Nível</button>
+            <button class="btn btn-secondary" onclick="closeModal()">Fechar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
